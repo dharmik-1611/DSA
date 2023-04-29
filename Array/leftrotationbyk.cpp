@@ -3,19 +3,19 @@ using namespace std;
 void rotatearrayLeft(int a[], int n, int d)
 {
     reverse(a, a + d);
-    cout << "after reversing from a to a+ d array is " << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << a[i] << " ";
-    }
-    cout << endl;
+    // cout << "after reversing from a to a+ d array is " << endl;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << a[i] << " ";
+    // }
+    // cout << endl;
     reverse(a + d, a + n);
-    cout << "after reversing from a+d to a+n array is " << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << a[i] << " ";
-    }
-    cout << endl;
+    // cout << "after reversing from a+d to a+n array is " << endl;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << a[i] << " ";
+    // }
+    // cout << endl;
     reverse(a, a + n);
 }
 int main()
