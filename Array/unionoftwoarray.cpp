@@ -1,11 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
-void unionArray(int a[] , int b[] , int n1 , int n2)
+void unionArray(int a[], int b[], int n1, int n2)
 {
-    int i = 0 ;
-    int j = 0 ;
-    vector<int>unionArr;
-    while()
+    int i = 0;
+    int j = 0;
+    vector<int> unionArr;
+    while (i < n1 && j < n2)
+    {
+        if (a[i] <= b[j])
+        {
+            if (unionArr.size() == 0 || unionArr.back() != a[i])
+            {
+                unionArr.push_back(a[i]);
+            }
+            i++;
+        }
+        else
+        {
+            if (unionArr.size() == 0 || unionArr.back() != b[j])
+            {
+                unionArr.push_back(b[j]);
+            }
+            j++;
+        }
+    }
+    while (j < n2)
+    {
+        if (unionArr.size() == 0 || unionArr.back() != b[j])
+        {
+            unionArr.push_back(b[j]);
+        }
+        j++;
+    }
+    while (i < n1)
+    {
+        if (unionArr.size() == 0 || unionArr.back() != a[i])
+        {
+            unionArr.push_back(a[i]);
+        }
+        i++;
+    }
+    cout << "union array is " << endl;
+    for (auto it : unionArr)
+    {
+        cout << it << " ";
+    }
 }
 int main()
 {
