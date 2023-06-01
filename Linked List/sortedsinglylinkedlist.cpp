@@ -101,19 +101,71 @@ public:
     {
         if (head == NULL)
         {
-            cout << " Linked list is already empty" << endl;
+            cout << "Linked list is already empty" << endl;
+            return;
+        }
+
+        if (head->next == NULL)
+        {
+            delete head;
+            head = NULL;
+            cout << "Last node deleted successfully" << endl;
+            return;
+        }
+
+        node *prev = head;
+        node *nextNode = head->next;
+        while (nextNode->next != NULL)
+        {
+            nextNode = nextNode->next;
+            prev = prev->next;
+        }
+        delete nextNode;
+        prev->next = NULL;
+        cout << "Last node deleted successfully" << endl;
+    }
+    void deleteSpecifically(int n)
+    {
+        if (head == NULL)
+        {
+            cout << " Linked list is empty" << endl;
+            return;
+        }
+        if (head->next == NULL)
+        {
+            delete head;
+            head = NULL;
+            cout << "Last node deleted successfully" << endl;
             return;
         }
         node *prev = head;
         node *nextNode = head->next;
         while (nextNode != NULL)
         {
-            nextNode = nextNode->next;
-            prev = prev->next;
+            if (nextNode->d == n)
+            {
+                break;
+            }
+            else
+            {
+                nextNode = nextNode->next;
+                prev = prev->next;
+            }
         }
-        nextNode = nextNode->next;
-        delete nextNode;
-        cout << " last node deleted successfully " << endl;
+        if (nextNode->next == NULL)
+        {
+            prev->next = NULL;
+            delete nextNode;
+            cout << "Specific node deleted successfully " << endl;
+            return;
+        }
+        else
+        {
+            prev->next = nextNode->next;
+            delete nextNode;
+            cout << "Specific node deleted successfully " << endl;
+            return;
+        }
     }
     void printList()
     {
@@ -139,7 +191,7 @@ int main()
     do
     {
         cout << endl;
-        cout << "Enter 0 for exit \n Enter 1 for inserting node \n Enter 2 for printing the list \n Enter 3 for deletionoffrontnode a \n Enter 4 for deleting last node" << endl;
+        cout << "Enter 0 for exit \n Enter 1 for inserting node \n Enter 2 for printing the list \n Enter 3 for deletionoffrontnode a \n Enter 4 for deleting last node \n Enter 5 for delete specific node" << endl;
         cin >> op;
         node *n1 = new node();
         switch (op)
@@ -158,6 +210,12 @@ int main()
             break;
         case 4:
             s.deletionFromTheEnd();
+            break;
+        case 5:
+            int n;
+            cout << "Enter the node value which you want to delete." << endl;
+            cin >> n;
+            s.deleteSpecifically(n);
             break;
         default:
             cout << "Enter proper option " << endl;
