@@ -14,9 +14,11 @@ int missingNumber(vector<int> &v, int n)
 }
 int main()
 {
-    vector<int> v({1, 2, 3, 5});
-    int ans = missingNumber(v, v.size());
-    cout << "Missing number is " << ans << endl;
+    // vector<int> v({1, 2, 3, 5});
+    // int ans = missingNumber(v, v.size());
+    // cout << "Missing number is " << ans << endl;
+
+    cout << "Hello world " + 22 << endl;
 }
 // better solution by calculating the sum
 // #include <bits/stdc++.h>
